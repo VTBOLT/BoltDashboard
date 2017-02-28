@@ -3,8 +3,10 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 
 Item {
+    property alias needle: needle
 
     RowLayout {
+        antialiasing: true
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: 20
         anchors.top: parent.top
@@ -16,17 +18,34 @@ Item {
         y: 0
         width: 1280
         height: 600
+        antialiasing: true
         source: "images/dashboard_background_with_gauge.png"
 
         Image {
             id: needle
-            x: 307
-            y: 299
-            width: 439
-            height: 140
+            x: 255
+            y: 259
+            width: 492
+            height: 200
+            fillMode: Image.PreserveAspectFit
+            antialiasing: true
             z: 1
             source: "images/dot_and_needle.png"
-
+            transform: Rotation{
+                id: myRot
+                origin.x: 350
+                origin.y: 75
+            }
+            SequentialAnimation{
+                running: true
+                loops: Animation.Infinite
+                PropertyAction { target: myRot; property: "origin.x"; value: 380 }
+                PropertyAction { target: myRot; property: "origin.y"; value:100 }
+                NumberAnimation { target: myRot; property: "angle"; to: 180; duration: 2000}
+                PropertyAction { target: myRot; property: "origin.x"; value: 380 }
+                PropertyAction { target: myRot; property: "origin.y"; value: 100 }
+                NumberAnimation { target: myRot; property: "angle"; to: 0; duration: 2000}
+            }
         }
 
         Image {
@@ -35,6 +54,7 @@ Item {
             y: -28
             width: 1280
             height: 600
+            antialiasing: true
             source: "images/battery_outline.png"
 
             ProgressBar {

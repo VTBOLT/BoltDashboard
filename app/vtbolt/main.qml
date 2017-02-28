@@ -6,7 +6,7 @@ ApplicationWindow {
     visible: true
     width: 1280
     height:600
-    title: qsTr("Hello World")
+    title: qsTr("VTBOLT GUI")
 
     SwipeView {
         id: swipeView
@@ -18,7 +18,7 @@ ApplicationWindow {
 
         Page {
             Label {
-                text: qsTr("Second page")
+                text: qsTr("Debug Page")
                 anchors.centerIn: parent
             }
         }
@@ -28,10 +28,10 @@ ApplicationWindow {
         id: tabBar
         currentIndex: swipeView.currentIndex
         TabButton {
-            text: qsTr("First")
+            text: qsTr("Race")
         }
         TabButton {
-            text: qsTr("Second")
+            text: qsTr("Debug")
         }
     }
 }
