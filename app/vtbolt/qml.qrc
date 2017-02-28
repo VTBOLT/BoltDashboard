@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Page1.qml</file>
+        <file>Page1Form.ui.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>images/battery_outline.png</file>
+        <file>images/dashboard_background_with_gauge.png</file>
+        <file>images/dot_and_needle.png</file>
+        <file>images/just_the_dot.png</file>
+        <file>images/needle.png</file>
+        <file>images/red_dot.png</file>
+        <file>images/yellow_dot.png</file>
+    </qresource>
+</RCC>
