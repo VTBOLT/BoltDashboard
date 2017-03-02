@@ -8,6 +8,8 @@
 #define DEBUG   1
 
 #include <QMainWindow>
+#include <QUrl>
+#include <QQuickItem>
 #include "interfacecan.h"
 
 namespace Ui {
@@ -25,6 +27,8 @@ public:
 private:
     Ui::MainWindow *ui;
     InterfaceCan * can;
+
+    void loadQML();
 
     void connectDebugSlots();
     void connectRaceSlots();

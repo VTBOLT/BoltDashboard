@@ -7,19 +7,34 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    // show start up steps here ???
+
+    // ??
+
     // instantiate the UI defined in Qt Creator
     ui->setupUi(this);
+    // load QML for race view from source
+    loadQML();
     // instantiate the can thread
     can = new InterfaceCan;
     // connect can signals to debug view
     connectDebugSlots();
     // connect 'clicked' signals to button actions
     connectNavSlots();
+    // connect signals from can to race view
+    connectRaceSlots();
+    // spin off the can thread
+    can->start();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::loadQML()
+{
+    ui->qmlRace->setSource(QUrl("../dashRewrite_v1/Race_view.qml"));
 }
 
 void MainWindow::connectDebugSlots()
@@ -41,7 +56,8 @@ void MainWindow::connectDebugSlots()
 
 void MainWindow::connectRaceSlots()
 {
-    // not yet implemented...
+    auto qmlObject = ui->qmlRace->rootObject();
+    connect(can, SIGNAL(updateRPM_QVar(double)), qmlObject, SLOT(qmlSlot(QVariant)));
 }
 
 void MainWindow::connectNavSlots()

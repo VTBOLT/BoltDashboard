@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui quick quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -47,3 +47,7 @@ HEADERS  += mainwindow.h \
     interfacecan.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES += \
+    Race_viewForm.ui.qml \
+    Race_view.qml

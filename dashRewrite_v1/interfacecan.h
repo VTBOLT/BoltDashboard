@@ -16,6 +16,7 @@ public:
 signals:
     void updateBatteryTemp(int temp);
     void updateRPM(double rpm);
+    void updateRPM_QVar(QVariant rpm);
     void updateRMScurr(int curr);
     void updateDCvolt(double volt);
     void updateHStemp(int temp);
@@ -26,6 +27,8 @@ signals:
     void sendEMCY7(int emc);
     void sendD6stat(int stat);
     void sendD7stat(int stat);
+
+
 };
 
 void my_handler(int s);

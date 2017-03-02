@@ -9,12 +9,16 @@ void InterfaceCan::run()
 {
     float i = 0;
 
-    /*while (1)
+    float incr = -0.2;
+
+    while (1)
     {
         emit updateRPM(i);
-        i = i + 0.5;
-        sleep(1);
-    }*/
+        if ( i > 5000 || i <= 0)
+            incr = -1 * incr;
+        i = i + incr;
+        sleep(.2);
+    }
 
     //runCan();
 }
@@ -44,13 +48,13 @@ void InterfaceCan::runCan() {
         signed short EMCY7 = 0;
         signed short drive6stat = 0;
         signed short drive7stat = 0;
-        time_t end = time(NULL) + 20;
+        //time_t end = time(NULL) + 20;
 
         /*
          * PLAN:
          * instead of updating variables below,
          * they would be updated then sent as a SIGNAL to the main loop
-         * where a widget could handle them. If unhandled, they would no do
+         * where a widget could handle them. If unhandled, they would not do
          * any harm to the application
          */
 
@@ -65,6 +69,7 @@ void InterfaceCan::runCan() {
                     {
                         rpm = (message.data[1] << 8 | message.data[0]);
                         emit updateRPM(rpm);
+                        //emit updateRPM_QVar(QVariant(rpm));
                         RMS_current = (message.data[7] << 8 | message.data[6]);
                         emit updateRMScurr(RMS_current);
                         DC_voltage = (message.data[5] << 8 | message.data[4]);
@@ -126,5 +131,5 @@ void InterfaceCan::runCan() {
 
 void my_handler(int s)
 {
-    exit(0);
+    exit(1);
 }
