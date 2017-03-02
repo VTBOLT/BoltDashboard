@@ -69,7 +69,7 @@ void InterfaceCan::runCan() {
                     {
                         rpm = (message.data[1] << 8 | message.data[0]);
                         emit updateRPM(rpm);
-                        //emit updateRPM_QVar(QVariant(rpm));
+                        emit updateRPM_QVar(QVariant(rpm));
                         RMS_current = (message.data[7] << 8 | message.data[6]);
                         emit updateRMScurr(RMS_current);
                         DC_voltage = (message.data[5] << 8 | message.data[4]);

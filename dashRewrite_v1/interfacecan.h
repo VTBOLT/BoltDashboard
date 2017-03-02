@@ -16,7 +16,7 @@ public:
 signals:
     void updateBatteryTemp(int temp);
     void updateRPM(double rpm);
-    void updateRPM_QVar(QVariant rpm);
+    void updateRPM_QVar(const QVariant & rpm);
     void updateRMScurr(int curr);
     void updateDCvolt(double volt);
     void updateHStemp(int temp);

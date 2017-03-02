@@ -57,7 +57,7 @@ void MainWindow::connectDebugSlots()
 void MainWindow::connectRaceSlots()
 {
     auto qmlObject = ui->qmlRace->rootObject();
-    connect(can, SIGNAL(updateRPM_QVar(double)), qmlObject, SLOT(qmlSlot(QVariant)));
+    connect(can, SIGNAL(updateRPM_QVar(QVariant)), qmlObject, SLOT(qmlSlot(QVariant)));
 }
 
 void MainWindow::connectNavSlots()
