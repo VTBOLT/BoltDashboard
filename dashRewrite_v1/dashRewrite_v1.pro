@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     race_view.cpp \
     debug_view.cpp \
     can/canrecieve.cpp \
-    can/cansend.cpp
+    can/cansend.cpp \
+    interfacecan.cpp
 
 HEADERS  += mainwindow.h \
     race_view.h \
@@ -42,6 +43,7 @@ HEADERS  += mainwindow.h \
     can/lib.h \
     can/netlink.h \
     can/raw.h \
-    can/terminal.h
+    can/terminal.h \
+    interfacecan.h
 
 FORMS    += mainwindow.ui
