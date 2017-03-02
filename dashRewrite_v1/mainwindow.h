@@ -10,6 +10,7 @@
 #include <QMainWindow>
 #include <QUrl>
 #include <QQuickItem>
+#include <QTextStream>
 #include "interfacecan.h"
 
 namespace Ui {

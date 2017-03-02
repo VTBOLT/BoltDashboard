@@ -14,6 +14,7 @@ void InterfaceCan::run()
     while (1)
     {
         emit updateRPM(i);
+        emit updateRPM_QVar(QVariant(i));
         if ( i > 5000 || i <= 0)
             incr = -1 * incr;
         i = i + incr;
@@ -69,7 +70,7 @@ void InterfaceCan::runCan() {
                     {
                         rpm = (message.data[1] << 8 | message.data[0]);
                         emit updateRPM(rpm);
-                        emit updateRPM_QVar(QVariant(rpm));
+                        emit updateRPM_QVar( QVariant(rpm) );
                         RMS_current = (message.data[7] << 8 | message.data[6]);
                         emit updateRMScurr(RMS_current);
                         DC_voltage = (message.data[5] << 8 | message.data[4]);
