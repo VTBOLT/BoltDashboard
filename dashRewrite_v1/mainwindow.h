@@ -36,6 +36,7 @@ private:
     void connectNavSlots();
 
 private slots:
+    void setText(QVariant text);
     void toDebugView();
     void toRaceView();
 };
