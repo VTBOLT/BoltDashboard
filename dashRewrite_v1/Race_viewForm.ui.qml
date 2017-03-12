@@ -3,8 +3,11 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 
 Item {
+    id: item
+    signal toDebugSignal
     property alias needle: needle
     property alias text_test: text_test.text
+    property alias qmlToDebug: qmlToDebug
 
     RowLayout {
         antialiasing: true
@@ -31,6 +34,11 @@ Item {
             color: "#FF0000"
             text: qsTr("Text")
             font.pixelSize: 45
+        }
+        Button {
+            id: qmlToDebug
+            text: "To Debug Screen"
+            onClicked: item.toDebugSignal()
         }
 
         Image {

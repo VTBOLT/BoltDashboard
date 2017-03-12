@@ -58,9 +58,10 @@ void MainWindow::connectDebugSlots()
 
 void MainWindow::connectRaceSlots()
 {
-    //auto qmlObject = ui->qmlRace->rootObject();
+    QObject * qmlObject = ui->qmlRace->rootObject();
     //connect(can, SIGNAL(updateRPM_QVar(QVariant)), qmlObject, SLOT(qmlSlot(QVariant)));
     connect(can, SIGNAL(updateRPM_QVar(QVariant)), this, SLOT(setText(QVariant)));
+    connect(qmlObject, SIGNAL(toDebugSignal()), this, SLOT(toDebugView()));
 }
 
 void MainWindow::setText(QVariant text)
@@ -71,7 +72,7 @@ void MainWindow::setText(QVariant text)
 
 void MainWindow::connectNavSlots()
 {
-    connect(ui->toDebugButton,SIGNAL(clicked(bool)),this,SLOT(toDebugView()));
+    //connect(ui->toDebugButton,SIGNAL(clicked(bool)),this,SLOT(toDebugView()));
     connect(ui->toRaceButton,SIGNAL(clicked(bool)),this,SLOT(toRaceView()));
 }
 
