@@ -49,5 +49,4 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 DISTFILES += \
-    Race_viewForm.ui.qml \
     Race_view.qml
