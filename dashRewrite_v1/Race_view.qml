@@ -6,6 +6,7 @@ Item {
     id: item
     signal toDebugSignal
     property alias needle: needle
+    property alias myRot: myRot.angle
     property alias text_test: text_test.text
     property alias qmlToDebug: qmlToDebug
 
@@ -51,21 +52,26 @@ Item {
             antialiasing: true
             z: 1
             source: "../images/dot_and_needle.png"
-            //transform: Rotation{
-            //    id: myRot
-            //    origin.x: 350
-            //    origin.y: 75
-            //}
-            //            SequentialAnimation{
-            //                running: true
-            //                loops: Animation.Infinite
-            //                PropertyAction { target: myRot; property: "origin.x"; value: 380 }
-            //                PropertyAction { target: myRot; property: "origin.y"; value:100 }
-            //                NumberAnimation { target: myRot; property: "angle"; to: 180; duration: 2000}
-            //                PropertyAction { target: myRot; property: "origin.x"; value: 380 }
-            //                PropertyAction { target: myRot; property: "origin.y"; value: 100 }
-            //                NumberAnimation { target: myRot; property: "angle"; to: 0; duration: 2000}
-            //            }
+
+            transform: Rotation{
+                id: myRot
+                origin.x: 380
+                origin.y: 100
+                angle: 90
+            }
+            function setRotation (angle) {
+                text_test: text = angle
+            }
+                        /*SequentialAnimation{
+                            running: true
+                            loops: Animation.Infinite
+                            PropertyAction { target: myRot; property: "origin.x"; value: 380 }
+                            PropertyAction { target: myRot; property: "origin.y"; value:100 }
+                            NumberAnimation { target: myRot; property: "angle"; to: 180; duration: 2000}
+                            PropertyAction { target: myRot; property: "origin.x"; value: 380 }
+                            PropertyAction { target: myRot; property: "origin.y"; value: 100 }
+                            NumberAnimation { target: myRot; property: "angle"; to: 0; duration: 2000}
+                        }*/
         }
 
         Image {

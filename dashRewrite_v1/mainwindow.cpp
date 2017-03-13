@@ -58,21 +58,25 @@ void MainWindow::connectDebugSlots()
 
 void MainWindow::connectRaceSlots()
 {
-    QObject * qmlObject = ui->qmlRace->rootObject();
+    //QObject * qmlObject = ui->qmlRace->rootObject();
     //connect(can, SIGNAL(updateRPM_QVar(QVariant)), qmlObject, SLOT(qmlSlot(QVariant)));
+    // set text for testing purposes only
     connect(can, SIGNAL(updateRPM_QVar(QVariant)), this, SLOT(setText(QVariant)));
-    connect(qmlObject, SIGNAL(toDebugSignal()), this, SLOT(toDebugView()));
 }
 
 void MainWindow::setText(QVariant text)
 {
     QObject * rootObject = ui->qmlRace->rootObject();
     rootObject->setProperty("text_test", text);
+    float angle = text.toFloat()/180;
+    rootObject->setProperty("myRot", QVariant(angle));
 }
 
 void MainWindow::connectNavSlots()
 {
+    QObject * qmlObject = ui->qmlRace->rootObject();
     //connect(ui->toDebugButton,SIGNAL(clicked(bool)),this,SLOT(toDebugView()));
+    connect(qmlObject, SIGNAL(toDebugSignal()), this, SLOT(toDebugView()));
     connect(ui->toRaceButton,SIGNAL(clicked(bool)),this,SLOT(toRaceView()));
 }
 
