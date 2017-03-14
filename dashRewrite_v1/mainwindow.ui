@@ -9,12 +9,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>600</height>
+    <width>1238</width>
+    <height>699</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: black
+</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -47,7 +51,9 @@
         </widget>
         <widget class="QWidget" name="DebugView">
          <property name="styleSheet">
-          <string notr="true">QLabel {font : bold 24px}</string>
+          <string notr="true">QLabel {font : bold 24px; color: white}
+QLCDNumber {color: white}
+QPushButton {background: white}</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
@@ -211,7 +217,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1200</width>
+     <width>1238</width>
      <height>22</height>
     </rect>
    </property>
