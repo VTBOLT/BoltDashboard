@@ -9,13 +9,13 @@ void InterfaceCan::run()
 {
     float i = 0;
 
-    float incr = -0.2;
+    float incr = -0.5;
 
     while (1)
     {
         emit updateRPM(i);
         emit updateRPM_QVar(QVariant(i));
-        if ( i > 5000 || i <= 0)
+        if ( i > 7999 || i <= 0)
             incr = -1 * incr;
         i = i + incr;
         sleep(.2);

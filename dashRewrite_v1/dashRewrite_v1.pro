@@ -25,15 +25,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    race_view.cpp \
-    debug_view.cpp \
     can/canrecieve.cpp \
     can/cansend.cpp \
     interfacecan.cpp
 
 HEADERS  += mainwindow.h \
-    race_view.h \
-    debug_view.h \
     can/can.h \
     can/cancomm.h \
     can/canframelen.h \

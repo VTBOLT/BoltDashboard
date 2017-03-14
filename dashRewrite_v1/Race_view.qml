@@ -7,7 +7,7 @@ Item {
     signal toDebugSignal
     property alias needle: needle
     property alias myRot: myRot.angle
-    property alias qmlToDebug: qmlToDebug
+    //property alias qmlToDebug: qmlToDebug
 
     RowLayout {
         antialiasing: true
@@ -25,12 +25,6 @@ Item {
         fillMode: Image.PreserveAspectFit
         antialiasing: true
         source: "../dash_images_real/dash_background_with_meter.png"
-
-        Button {
-            id: qmlToDebug
-            text: "To Debug Screen"
-            onClicked: item.toDebugSignal()
-        }
 
         Image {
             id: needle
@@ -52,17 +46,19 @@ Item {
             function setRotation (angle) {
                 text_test: text = angle
             }
-                        /*SequentialAnimation{
-                            running: true
-                            loops: Animation.Infinite
-                            PropertyAction { target: myRot; property: "origin.x"; value: 380 }
-                            PropertyAction { target: myRot; property: "origin.y"; value:100 }
-                            NumberAnimation { target: myRot; property: "angle"; to: 180; duration: 2000}
-                            PropertyAction { target: myRot; property: "origin.x"; value: 380 }
-                            PropertyAction { target: myRot; property: "origin.y"; value: 100 }
-                            NumberAnimation { target: myRot; property: "angle"; to: 0; duration: 2000}
-                        }*/
+            MouseArea{
+                width: needle.width
+                height: needle.height
+                onClicked: item.toDebugSignal()
+                //onClicked: console.log("Mouse Area Clicked!")
+            }
         }
+
+        /*Button {
+            id: qmlToDebug
+            text: "To Debug Screen"
+            onClicked: item.toDebugSignal()
+        }*/
 
         Image {
             id: battery
