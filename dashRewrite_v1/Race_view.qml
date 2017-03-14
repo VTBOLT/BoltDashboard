@@ -7,7 +7,6 @@ Item {
     signal toDebugSignal
     property alias needle: needle
     property alias myRot: myRot.angle
-    property alias text_test: text_test.text
     property alias qmlToDebug: qmlToDebug
 
     RowLayout {
@@ -23,19 +22,10 @@ Item {
         y: 0
         width: 1280
         height: 600
+        fillMode: Image.PreserveAspectFit
         antialiasing: true
-        source: "../images/dashboard_background_with_gauge.png"
+        source: "../dash_images_real/dash_background_with_meter.png"
 
-        Text {
-            id: text_test
-            x: 55
-            y: 52
-            width: 239
-            height: 89
-            color: "#FF0000"
-            text: qsTr("Text")
-            font.pixelSize: 45
-        }
         Button {
             id: qmlToDebug
             text: "To Debug Screen"
@@ -44,20 +34,20 @@ Item {
 
         Image {
             id: needle
-            x: 255
-            y: 259
-            width: 492
-            height: 200
+            x: 371
+            y: 300
+            width: 526
+            height: 143
             fillMode: Image.PreserveAspectFit
             antialiasing: true
             z: 1
-            source: "../images/dot_and_needle.png"
+            source: "../dash_images_real/needle_w_green_dot.png"
 
             transform: Rotation{
                 id: myRot
-                origin.x: 380
-                origin.y: 100
-                angle: 90
+                origin.x: 263
+                origin.y: 71.5
+                angle: 0
             }
             function setRotation (angle) {
                 text_test: text = angle
@@ -80,8 +70,9 @@ Item {
             y: -28
             width: 1280
             height: 600
+            fillMode: Image.PreserveAspectFit
             antialiasing: true
-            source: "../images/battery_outline.png"
+            source: "../dash_images_real/battery_sized_to_fit_screen.png"
 
             ProgressBar {
                 id: progressBar

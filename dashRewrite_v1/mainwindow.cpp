@@ -61,14 +61,13 @@ void MainWindow::connectRaceSlots()
     //QObject * qmlObject = ui->qmlRace->rootObject();
     //connect(can, SIGNAL(updateRPM_QVar(QVariant)), qmlObject, SLOT(qmlSlot(QVariant)));
     // set text for testing purposes only
-    connect(can, SIGNAL(updateRPM_QVar(QVariant)), this, SLOT(setText(QVariant)));
+    connect(can, SIGNAL(updateRPM_QVar(QVariant)), this, SLOT(setRPM(QVariant)));
 }
 
-void MainWindow::setText(QVariant text)
+void MainWindow::setRPM(QVariant text)
 {
     QObject * rootObject = ui->qmlRace->rootObject();
-    rootObject->setProperty("text_test", text);
-    float angle = text.toFloat()/180;
+    float angle = text.toFloat() * (180.0/8000.0);
     rootObject->setProperty("myRot", QVariant(angle));
 }
 
