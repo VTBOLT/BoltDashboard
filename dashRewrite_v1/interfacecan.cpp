@@ -5,6 +5,21 @@
 
 QTextStream qtCout(stdout);
 
+/*
+ * GOAL:::
+ *  Instantiate the QProcess pointing at the ROS executable
+ *  When data become available from the process's stdout
+ *  - or - when an error comes from the stderr, we want to
+ *  interpret the message subject and value, then set a variable,
+ *  and finally emit a signal from this thread to the main UI thread
+ *
+ *
+ *  I made this a little complicated... we are starting a Qprocess from
+ *  within a QThread. We are doing this because you cannot emit Qt signals
+ *  from ROS code. This allows is to pull data from the ROS process then
+ *  send that data to the UI itself.
+*/
+
 void InterfaceCan::run()
 {
     float i = 0;
