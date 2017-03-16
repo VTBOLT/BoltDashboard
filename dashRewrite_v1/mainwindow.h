@@ -36,9 +36,10 @@ private:
     void connectNavSlots();
 
 private slots:
-    void setRPM(QVariant text);
+    void setRPM(QVariant rpm);
     void toDebugView();
     void toRaceView();
+    void setBatteryPercent(QVariant value);
 };
 
 #endif // MAINWINDOW_H

@@ -8,8 +8,10 @@ QTextStream qtCout(stdout);
 void InterfaceCan::run()
 {
     float i = 0;
-
     float incr = -0.5;
+
+    int dumb_counter = 0;
+    double dcVolt = 515;
 
     while (1)
     {
@@ -18,6 +20,16 @@ void InterfaceCan::run()
         if ( i > 7999 || i <= 0)
             incr = -1 * incr;
         i = i + incr;
+
+        dumb_counter++;
+        if (dumb_counter % 100 ==0 )
+        {
+            dumb_counter = 0;
+            emit(updateDCvolt(dcVolt));
+            emit(updateDCVolt_QVar(QVariant(dcVolt)));
+            dcVolt = dcVolt -2;
+        }
+
         sleep(.2);
     }
 

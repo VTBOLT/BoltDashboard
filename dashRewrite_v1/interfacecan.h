@@ -19,6 +19,7 @@ signals:
     void updateRPM_QVar(const QVariant & rpm);
     void updateRMScurr(int curr);
     void updateDCvolt(double volt);
+    void updateDCVolt_QVar(const QVariant & volt);
     void updateHStemp(int temp);
     void updateMotorTemp(int temp);
     void updateVoltAngle(int angle);

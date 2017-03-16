@@ -62,13 +62,21 @@ void MainWindow::connectRaceSlots()
     //connect(can, SIGNAL(updateRPM_QVar(QVariant)), qmlObject, SLOT(qmlSlot(QVariant)));
     // set text for testing purposes only
     connect(can, SIGNAL(updateRPM_QVar(QVariant)), this, SLOT(setRPM(QVariant)));
+    connect(can, SIGNAL(updateDCVolt_QVar(QVariant)), this, SLOT(setBatteryPercent(QVariant)));
 }
 
-void MainWindow::setRPM(QVariant text)
+void MainWindow::setRPM(QVariant rpm)
 {
     QObject * rootObject = ui->qmlRace->rootObject();
-    float angle = text.toFloat() * (180.0/8000.0);
+    float angle = rpm.toFloat() * (180.0/8000.0);
     rootObject->setProperty("myRot", QVariant(angle));
+}
+
+void MainWindow::setBatteryPercent(QVariant value)
+{
+    QObject * rootObject = ui->qmlRace->rootObject();
+    // convert value to a percentage of the rectangle's width...
+    rootObject->setProperty("green_bar", QVariant(value));
 }
 
 void MainWindow::connectNavSlots()

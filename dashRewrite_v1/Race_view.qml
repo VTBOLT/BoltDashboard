@@ -7,6 +7,7 @@ Item {
     signal toDebugSignal
     property alias needle: needle
     property alias myRot: myRot.angle
+    property alias green_bar: green_bar.width
     //property alias qmlToDebug: qmlToDebug
 
     RowLayout {
@@ -76,11 +77,12 @@ Item {
 
         //put rectangle here
         Rectangle {
+            id: green_bar
             color: "#39B54A"
             x: 255
             y: 482
             z: 2
-            width: 200
+            width: 515 // max = 515
             height: 75
             antialiasing: true
         }
