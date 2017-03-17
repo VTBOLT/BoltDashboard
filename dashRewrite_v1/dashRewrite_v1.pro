@@ -27,7 +27,8 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     can/canrecieve.cpp \
     can/cansend.cpp \
-    interfacecan.cpp
+    interfacecan.cpp \
+    rosprocess.cpp
 
 HEADERS  += mainwindow.h \
     can/can.h \
@@ -40,7 +41,8 @@ HEADERS  += mainwindow.h \
     can/netlink.h \
     can/raw.h \
     can/terminal.h \
-    interfacecan.h
+    interfacecan.h \
+    rosprocess.h
 
 FORMS    += mainwindow.ui
 
