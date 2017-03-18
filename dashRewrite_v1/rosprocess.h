@@ -3,6 +3,7 @@
 
 #include <QThread>
 #include <QProcess>
+#include <QVariant>
 
 class RosProcess : public QThread
 {
@@ -12,7 +13,7 @@ public:
     void run();
 
 private:
-    void parseData(); // TODO
+    void parseData(QByteArray data); // TODO
     void parseError();
     QProcess * m_processObj;
 

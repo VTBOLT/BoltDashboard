@@ -29,7 +29,18 @@
 */
 
 // MESSAGE ID's --- consider putting these into a shared header file
-#define RPM 0
+#define RPM         0
+#define BATT_TEMP   1
+#define RMS_CURRENT 2
+#define DC_VOLTS    3
+#define HS_TEMP     4
+#define MOTOR_TEMP  5
+#define VOLT_ANGLE  6
+#define IQ_CURRENT  7
+#define EMCY6       8
+#define EMCY7       9
+#define D6_STAT     10
+#define D7_STAT     11
 // END ID's
 
 RosProcess::RosProcess(QString path, QStringList args)
@@ -49,6 +60,7 @@ void RosProcess::readData()
 {
     QByteArray data = m_processObj->readAllStandardOutput();
     // Now we parse the data and emit a signal ...
+    parseData(data);
 }
 
 void RosProcess::readError()
@@ -57,9 +69,55 @@ void RosProcess::readError()
     // parse the data and take an action based on the error code...
 }
 
-void RosProcess::parseData()
+void RosProcess::parseData(QByteArray data)
 {
-    // TODO
+    QStringList splitData = QString(data).split(';');
+    QString s_id = splitData.at(0);
+    QString s_data = splitData.at(1);
+
+    bool * ok = 0;
+    int ID = s_id.toInt(ok, 10); // CAN MESSAGE ID
+    int can_data = s_data.toInt(ok, 10);
+
+
+    switch (ID)
+    {
+    case (RPM):
+        emit updateRPM(can_data);
+        emit updateRPM_QVar( QVariant(can_data) );
+        break;
+    case (BATT_TEMP):
+        emit updateBatteryTemp(can_data);
+        break;
+    case (RMS_CURRENT):
+        emit updateRMScurr(can_data);
+        break;
+    case (DC_VOLTS):
+        emit updateDCvolt(can_data);
+        emit updateDCVolt_QVar( QVariant(can_data) );
+        break;
+    case (HS_TEMP):
+        emit updateHStemp(can_data);
+        break;
+    case (MOTOR_TEMP):
+        emit updateMotorTemp(can_data);
+        break;
+    case (VOLT_ANGLE):
+        emit updateVoltAngle(can_data);
+        break;
+    case (IQ_CURRENT):
+        emit updateIQcurr(can_data);
+        break;
+    case (EMCY6):
+        break;
+    case (EMCY7):
+        break;
+    case (D6_STAT):
+        break;
+    case (D7_STAT):
+        break;
+    }
+
 }
 
 void RosProcess::parseError()
