@@ -49,6 +49,6 @@ add_executable(listener1 src/listener1.cpp)
 target_link_libraries(listener1 ${catkin_LIBRARIES})
 #add_dependencies(listener1)
 
-#add_executable(listener2 src/listener2.cpp)
-#target_link_libraries(listener2 ${catkin_LIBRARIES})
+add_executable(listener2 src/listener2.cpp)
+target_link_libraries(listener2 ${catkin_LIBRARIES})
 #add_dependencies(listener2) 
