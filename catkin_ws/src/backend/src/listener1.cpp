@@ -1,7 +1,6 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "std_msgs/Int16.h"
-#include "can_msg.h"
 #include "motor_msg.h"
 #include "batterytemp_msg.h"
 #include "temp_msg.h"

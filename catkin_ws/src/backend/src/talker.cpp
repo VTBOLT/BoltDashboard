@@ -3,7 +3,6 @@
 #include "std_msgs/Int16.h"
 #include "canrecieve.cpp"
 //#include "caninterface.cpp"
-#include "can_msg.h"
 #include "motor_msg.h"
 #include "batterytemp_msg.h"
 #include "temp_msg.h"
@@ -20,7 +19,7 @@ int main(int argc, char **argv)
 
   ros::NodeHandle n;
 
-  ros::Publisher chatter_can = n.advertise<backend::can_msg>("chatter_can", 1000);
+  //ros::Publisher chatter_can = n.advertise<backend::can_msg>("chatter_can", 1000);
   ros::Publisher chatter_motor = n.advertise<backend::motor_msg>("chatter_motor", 1000);
   ros::Publisher chatter_batterytemp = n.advertise<backend::batterytemp_msg>("chatter_batterytemp", 1000);
   ros::Publisher chatter_temp = n.advertise<backend::temp_msg>("chatter_temp", 1000);
@@ -41,7 +40,7 @@ int main(int argc, char **argv)
   
   while (ros::ok())
     {
-      std::cout << "while loop" << std::endl;
+      //std::cout << "while loop" << std::endl;
       std::string name;
       std::string value;
       signed short batterytemp = 0;
@@ -57,7 +56,7 @@ int main(int argc, char **argv)
       signed short drive6stat = 0;
       signed short drive7stat = 0;
       
-      backend::can_msg c_msg;
+      //backend::can_msg c_msg;
       backend::motor_msg motor_msg;
       backend::batterytemp_msg batterytemp_msg;
       backend::temp_msg temp_msg;
@@ -67,7 +66,7 @@ int main(int argc, char **argv)
       backend::drive7_msg drive7_msg;
 			 
       
-      std::cout << "calling canrecieve" << std::endl;
+      //std::cout << "calling canrecieve" << std::endl;
       message = canrecieve(2, argv2, std::cin);
 
       switch(message.can_id)

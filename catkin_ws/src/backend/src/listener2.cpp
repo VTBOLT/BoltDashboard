@@ -1,14 +1,19 @@
 #include "ros/ros.h"
 #include "std_msgs/String.h"
 #include "std_msgs/Int16.h"
-#include "/home/pi/catkin_ws/devel/include/backend/can_msg.h"
-#include "/home/pi/catkin_ws/devel/include/backend/motor_msg.h"
-#include "/home/pi/catkin_ws/devel/include/backend/batterytemp_msg.h"
-#include "/home/pi/catkin_ws/devel/include/backend/temp_msg.h"
-#include "/home/pi/catkin_ws/devel/include/backend/current_msg.h"
-#include "/home/pi/catkin_ws/devel/include/backend/emcy6_msg.h"
-#include "/home/pi/catkin_ws/devel/include/backend/emcy7_msg.h"
-#include "/home/pi/catkin_ws/devel/include/backend/drive7_msg.h"
+
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+#include "std_msgs/Int16.h"
+#include "motor_msg.h"
+#include "batterytemp_msg.h"
+#include "temp_msg.h"
+#include "current_msg.h"
+#include "emcy6_msg.h"
+#include "emcy7_msg.h"
+#include "drive7_msg.h"
+
+
 #include <iostream>
 
 #define RPM         0

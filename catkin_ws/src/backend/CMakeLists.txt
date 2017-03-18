@@ -34,7 +34,7 @@ generate_messages(
 catkin_package()
 
 ## Build talker and listener
-include_directories(include ${catkin_INCLUDE_DIRS} can/ msg/ ~/catkin_ws/devel/include/backend/)
+include_directories(include ${catkin_INCLUDE_DIRS} can/ msg/ /home/pi/dash_devel/catkin_ws/devel/include/backend/)
 
 
 add_executable(talker src/talker.cpp)
@@ -49,6 +49,6 @@ add_executable(listener1 src/listener1.cpp)
 target_link_libraries(listener1 ${catkin_LIBRARIES})
 #add_dependencies(listener1)
 
-add_executable(listener2 src/listener2.cpp)
-target_link_libraries(listener2 ${catkin_LIBRARIES})
+#add_executable(listener2 src/listener2.cpp)
+#target_link_libraries(listener2 ${catkin_LIBRARIES})
 #add_dependencies(listener2) 
