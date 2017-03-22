@@ -25,7 +25,7 @@ Item {
         height: 600
         fillMode: Image.PreserveAspectFit
         antialiasing: true
-        source: "../dash_images_real/dash_background_with_meter.png"
+        source: "../images/dash_background_with_meter.png"
     }
 
         /*Button {
@@ -43,7 +43,7 @@ Item {
         fillMode: Image.PreserveAspectFit
         antialiasing: true
         z: 1
-        source: "../dash_images_real/needle_w_green_dot.png"
+        source: "../images/needle_w_green_dot.png"
 
         transform: Rotation{
             id: myRot
@@ -71,7 +71,7 @@ Item {
             height: 600
             fillMode: Image.PreserveAspectFit
             antialiasing: true
-            source: "../dash_images_real/battery_sized_to_fit_screen.png"
+            source: "../images/battery_sized_to_fit_screen.png"
 
         }
 
