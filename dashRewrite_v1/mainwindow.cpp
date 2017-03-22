@@ -2,9 +2,6 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "ui_startup.h"
-
-
 
 QTextStream qCout(stdout);
 
@@ -76,6 +73,7 @@ void MainWindow::connectRaceSlots()
 
 void MainWindow::connectStartupSlots()
 {
+    connect(gui->step0, SIGNAL(clicked(bool)), this, SLOT(showStartupZero()));
     connect(gui->step1, SIGNAL(clicked(bool)), this, SLOT(showStartupOne()));
     connect(gui->step2, SIGNAL(clicked(bool)), this, SLOT(showStartupTwo()));
     connect(gui->step3, SIGNAL(clicked(bool)), this, SLOT(showStartupThree()));
@@ -108,11 +106,13 @@ void MainWindow::connectNavSlots()
 void MainWindow::toDebugView()
 {
     gui->views->setCurrentIndex(DEBUG);
+    setStyleSheet("background-color:black");
 }
 
 void MainWindow::toRaceView()
 {
     gui->views->setCurrentIndex(RACE);
+    setStyleSheet("background-color:black");
 }
 
 void MainWindow::toStartupScreen()
@@ -122,21 +122,22 @@ void MainWindow::toStartupScreen()
 
 void MainWindow::showStartupZero()
 {
-    setStyleSheet("background-image:url(:/images/startup_0.png);" );
+
+    gui->startupFrame->setStyleSheet("QWidget {border-image:url(:/images/startup_0.png)0 0 0 stretch stretch; background-repeat: none;}" );
 }
 
 void MainWindow::showStartupOne()
 {
-    setStyleSheet("background-image:url(:/images/startup_1.png)");
+    gui->startupFrame->setStyleSheet("QWidget{ border-image:url(:/images/startup_1.png) 0 0 0 0 stretch stretch; background-repeat: none;}");
 }
 
 void MainWindow::showStartupTwo()
 {
-    setStyleSheet("background-image:url(:/images/startup_2.png)");
+    gui->startupFrame->setStyleSheet("border-image:url(:/images/startup_2.png)0 0 0 0 stretch stretch; background-repeat: none");
 }
 
 void MainWindow::showStartupThree()
 {
-    setStyleSheet("background-image:url(:/images/startup_3.png)");
+    gui->startupFrame->setStyleSheet("border-image:url(:/images/startup_3.png)0 0 0 0 stretch stretch; background-repeat: none");
 
 }
