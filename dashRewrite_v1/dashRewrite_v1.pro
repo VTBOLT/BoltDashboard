@@ -47,4 +47,18 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 DISTFILES += \
-    Race_view.qml
+    Race_view.qml \
+    ../images/battery_outline.png \
+    ../images/dashboard_background_with_gauge.png \
+    ../images/dot_and_needle.png \
+    ../images/just_the_dot.png \
+    ../images/needle.png \
+    ../images/red_dot.png \
+    ../images/startup_0.png \
+    ../images/yellow_dot.png \
+    ../images/startup_0.xcf
+
+LIBS += -L "/home/bolt/Qt/EnterpriseAddOns/QtQuickEnterpriseControls"
+
+RESOURCES += \
+    ../images/images.qrc
